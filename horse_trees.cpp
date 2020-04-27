@@ -60,8 +60,6 @@ void instructions()
 
 void draw_background()
 {
-	glPushMatrix();
-
 	glBegin(GL_POLYGON);		//rectangular background lower
 	glColor3f(0.2, 0.4, 0.1);
 	glVertex2i(0, 0);
@@ -77,14 +75,10 @@ void draw_background()
 	glVertex2i(1200, 750);
 	glVertex2i(0, 750);
 	glEnd();
-
-	glPopMatrix();
 }
 
 void draw_tree(int x, int y)
 {
-	glPushMatrix();
-
 	glBegin(GL_POLYGON);		//rectangular trunk
 	glColor3f(0.3, 0.2, 0.1);
 	glVertex2i(0 + x, 0 + y);
@@ -113,14 +107,11 @@ void draw_tree(int x, int y)
 	glVertex2i(x + 40, 260 + y);
 	glVertex2i(x + 10, 360 + y);
 	glEnd();
-
-	glPopMatrix();
 }
 
 void draw_horse()
 {
 	int x = 400; //vary x to position the horse in diff. locations along the horizontal axis
-	glPushMatrix();
 
 	//front leg
 	glBegin(GL_POLYGON);
@@ -188,15 +179,12 @@ void draw_horse()
 	glEnd();
 
 	//eye
-	glBegin(GL_POLYGON);
+	glPointSize(4);
+	glBegin(GL_POINTS);
 	glColor3f(0, 0, 0);
-	glVertex2i(89 + x, 366);
-	glVertex2i(85 + x, 366);
-	glVertex2i(85 + x, 361);
-	glVertex2i(89 + x, 361);
+	glVertex2i(85 + x, 360);
 	glEnd();
 
-	glPopMatrix();
 }
 
 //movement of horse along x axis in negative direction
